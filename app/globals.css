@@ -3,7 +3,5 @@
 @tailwind utilities;
 
 @layer components {
-  .name {
-    /* @apply font-extrabold py-3 text-[50vh] hover:bg-gowno; */
-  }
+
 }
