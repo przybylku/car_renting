@@ -100,6 +100,7 @@ export default function OffertPage() {
                   payload: [f_age?.[1], Number(event.currentTarget.value)],
                 });
               }}
+              value={2023}
               type="number"
             ></input>
           </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 interface Props {
   price: [number, number];
@@ -35,31 +35,28 @@ export default function FiltredList(props: Props) {
   useEffect(() => {
     const cars_a = getCars(price, age, type);
     cars_a.then((a) => setCars(a));
-  }, []);
+  }, [props]);
 
   return (
     <>
       <div className="flex flex-row flex-wrap w-full mt-[50px] justify-items-center justify-center">
         {cars.length !== 0 ? (
           cars.map((item) => {
-            console.log(item);
-            return <div className="offert-box">a{item?.name}</div>;
+            return (
+              <Suspense fallback={<>Loading...</>}>
+                {" "}
+                <div className="offert-box">
+                  Name: {item?.name}
+                  <br />
+                  Price: ${item?.price} <br /> Age: {item?.age}
+                </div>
+              </Suspense>
+            );
           })
         ) : (
-          <>a</>
+          <>Nie znaleziono ofert!</>
         )}
-
-        <div className="offert-box"></div>
-        <div className="offert-box"></div>
-        <div className="offert-box"></div>
-        <div className="offert-box"></div>
-        <div className="offert-box"></div>
-        <div className="offert-box"></div>
-        <div className="offert-box"></div>
-        <div className="offert-box"></div>
-        <div className="offert-box"></div>
-        <div className="offert-box"></div>
-        <div className="offert-box"></div>
+        {/* <>{price ? price : "none"}</> */}
       </div>
     </>
   );

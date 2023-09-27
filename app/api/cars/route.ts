@@ -41,25 +41,44 @@ export async function POST(request: NextRequest) {
   console.log(data);
   let filteredAged: Array<Parametr> = [];
   let result: Array<Parametr> = [];
-  result = cars_data.filter((item) => {
-    return (
-      item.price >= Number(data.price?.[0]) &&
-      item.price <= Number(data.price?.[1])
-    );
-  });
+  let result_price: Array<Parametr> = [];
+  let result_age: Array<Parametr> = [];
+
+  //   if (data.price?.[0] > 0 && data.price?.[1] > 0) {
+  //     result_price = cars_data.filter((item) => {
+  //       return (
+  //         item.price >= Number(data.price?.[0]) &&
+  //         item.price <= Number(data.price?.[1])
+  //       );
+  //     });
+  //   }
+  //   console.log("price", result_price);
+  //   if (data?.age?.[1] > 0 || data?.age?.[0] > 0) {
+  //     result_age = cars_data.filter((i) => {
+  //       return i.age >= data.age?.[0] && i.age <= data.age?.[1];
+  //     });
+  //   }
+  //   console.log("age", result_age);
+  //   if (result.length > 0) {
+  //     result = cars_data.filter((i) => {
+  //       return i.engine === data?.type;
+  //     });
+  //   }
+  if (data.price?.[1])
+    if (
+      data.price?.[1] === 0 &&
+      data.age?.[1] === 0 &&
+      data.price?.[0] === 0 &&
+      data.age?.[0] === 0
+    ) {
+      result = cars_data;
+    } else {
+      result = result_price.concat(
+        result_age.filter((i) => result_price.indexOf(i) < 0)
+      );
+    }
   console.log(result);
-  if (result.length > 0 && data?.age?.[1] > 0) {
-    result = result.filter((i) => {
-      i.age >= data.age?.[0] && i.age <= data.age?.[1];
-    });
-  }
-  console.log(result);
-  if (result.length > 0) {
-    result = result.filter((i) => {
-      return i.engine === data?.type;
-    });
-  }
-  console.log(result);
+
   //   console.log(FilteredPrice, data.price?.[1]);
   return NextResponse.json(result);
 }

@@ -4,7 +4,7 @@ const Image = dynamic(() => import("@/components/RenderImage"));
 
 export default function HomePage() {
   return (
-    <main className="relative flex w-full">
+    <main className="relative flex w-full flex-wrap">
       <div className="flex w-full flex-1 flex-col  px-[20px]">
         <h1
           className="font-extrabold uppercase text-white text-[80px] px-4 mt-16 drop-shadow"
@@ -27,8 +27,11 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div className="absolute top-[0px] -z-10">
+      <div className="absolute top-[-400px] -z-20">
         <Image url="/3.jpg" wfull={true} />
+      </div>
+      <div className="flex flex-col flex-wrap w-full bg-white basis-full mt-[400px]">
+        <h3 className="text-center text-[50px] font-bold ">Dlaczego my?</h3>
       </div>
     </main>
   );
