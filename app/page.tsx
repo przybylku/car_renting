@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <main className="relative flex w-full flex-wrap">
       <div className="flex w-full flex-1 flex-col  px-[20px]">
-        <h1
+        {/* <h1
           className="font-extrabold uppercase text-white text-[80px] px-4 mt-16 drop-shadow"
           style={{ textShadow: "5px 5px 35px black" }}
         >
@@ -25,7 +25,8 @@ export default function HomePage() {
           <div className="basis-1/2 text-center bg-palette-100 ml-[20px] rounded px-1 text-[20px] leading-10">
             Wynajmij auto
           </div>
-        </div>
+        </div> */}
+        
       </div>
       <div className="absolute top-[-400px] -z-20">
         <Image url="/3.jpg" wfull={true} />

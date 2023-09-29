@@ -5,6 +5,7 @@
  */
 "use client";
 import FiltredList from "@/components/FiltredList";
+import Modal from "@/components/Modal";
 import { useState } from "react";
 enum Filters {
   PRICE,
@@ -19,8 +20,12 @@ interface FilterChange {
 
 export default function OffertPage() {
   const [f_price, set_f_price] = useState<[number, number]>([0, 0]);
-  const [f_age, set_f_age] = useState<[number, number]>([0, 0]);
+  const [f_age, set_f_age] = useState<[number, number]>([0, 2023]);
   const [f_engine, set_f_engine] = useState<boolean>(false); // true - Benzyna // false - diesel
+  const [modal_show, setModal_show] = useState<boolean>(true) // Pokazywanie modalu
+  const handleModal = (show: boolean) => {
+    return setModal_show(show)
+  }
   const handleFilterChange = (props: FilterChange) => {
     console.log(props);
     switch (props.filter) {
@@ -53,12 +58,14 @@ export default function OffertPage() {
   };
   return (
     <>
+
+      {modal_show ? <Modal fn={handleModal} show={modal_show} close={true} content="W sekcji wyszukiwania potrzebne są wszystkie dane!" title={"Informacja"}/> : <></>}
       {/* Filtry */}
       <div className="flex flex-col flex-wrap justify-center align-middle w-full">
         <div className="align-middle justify-center basis-3/5 flex flex-row flex-wrap w-full mt-10">
           <div className="filter-box">
-            <p id="p">Price</p>
-            <p>From</p>
+            <p id="p">Cena</p>
+            <p>Od</p>
             <input
               onChange={(event) => {
                 handleFilterChange({
@@ -66,9 +73,10 @@ export default function OffertPage() {
                   payload: [Number(event.currentTarget.value), f_price?.[1]],
                 });
               }}
+              value={f_price[0]}
               type="number"
             ></input>
-            <p>To</p>
+            <p>Do</p>
             <input
               onChange={(event) => {
                 handleFilterChange({
@@ -76,13 +84,14 @@ export default function OffertPage() {
                   payload: [f_price?.[0], Number(event.currentTarget.value)],
                 });
               }}
+              value={f_price[1]}
               type="number"
             ></input>
             {/* <input type="range" /> maybe pozniej */}
           </div>
           <div className="filter-box">
-            <p id="p">Age</p>
-            <p>From</p>
+            <p id="p">Rok produkcji</p>
+            <p>Od</p>
             <input
               onChange={(event) => {
                 handleFilterChange({
@@ -91,8 +100,9 @@ export default function OffertPage() {
                 });
               }}
               type="number"
+              value={f_age[0]}
             ></input>
-            <p>To</p>
+            <p>Do</p>
             <input
               onChange={(event) => {
                 handleFilterChange({
@@ -100,7 +110,7 @@ export default function OffertPage() {
                   payload: [f_age?.[1], Number(event.currentTarget.value)],
                 });
               }}
-              value={2023}
+              value={f_age[1]}
               type="number"
             ></input>
           </div>

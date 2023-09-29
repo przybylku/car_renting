@@ -11,7 +11,7 @@ async function getCars(
   age: [number, number],
   type: boolean
 ) {
-  const res = await fetch("http://localhost:3000/api/cars", {
+  const res = await fetch("https://humble-waddle-7pj7pp7g57736p7-3000.app.github.dev/api/cars", {
     method: "POST",
     body: JSON.stringify({
       price: price,
@@ -38,7 +38,7 @@ export default function FiltredList(props: Props) {
   }, [props]);
 
   return (
-    <>
+    <> 
       <div className="flex flex-row flex-wrap w-full mt-[50px] justify-items-center justify-center">
         {cars.length !== 0 ? (
           cars.map((item) => {
@@ -54,7 +54,10 @@ export default function FiltredList(props: Props) {
             );
           })
         ) : (
-          <>Nie znaleziono ofert!</>
+          <div style={{flex: "1", flexDirection: "column", justifyContent: "center", textAlign: "center"}}>
+            <h1 className="text-[2rem]">  Brak wyników wyszukiwania</h1>
+            <p>Spróbuj użyć mniejszej liczby filtrów, aby uzyskać więcej wyników.</p>
+          </div>
         )}
         {/* <>{price ? price : "none"}</> */}
       </div>
