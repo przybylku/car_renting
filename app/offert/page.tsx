@@ -19,13 +19,13 @@ interface FilterChange {
 }
 
 export default function OffertPage() {
-  const [f_price, set_f_price] = useState<[number, number]>([0, 0]);
+  const [f_price, set_f_price] = useState<[number, number]>([0, 1000000]);
   const [f_age, set_f_age] = useState<[number, number]>([0, 2023]);
   const [f_engine, set_f_engine] = useState<boolean>(false); // true - Benzyna // false - diesel
-  const [modal_show, setModal_show] = useState<boolean>(true) // Pokazywanie modalu
+  const [modal_show, setModal_show] = useState<boolean>(true); // Pokazywanie modalu
   const handleModal = (show: boolean) => {
-    return setModal_show(show)
-  }
+    return setModal_show(show);
+  };
   const handleFilterChange = (props: FilterChange) => {
     console.log(props);
     switch (props.filter) {
@@ -58,8 +58,17 @@ export default function OffertPage() {
   };
   return (
     <>
-
-      {modal_show ? <Modal fn={handleModal} show={modal_show} close={true} content="W sekcji wyszukiwania potrzebne są wszystkie dane!" title={"Informacja"}/> : <></>}
+      {modal_show ? (
+        <Modal
+          fn={handleModal}
+          show={modal_show}
+          close={true}
+          content="W sekcji wyszukiwania potrzebne są wszystkie dane!"
+          title={"Informacja"}
+        />
+      ) : (
+        <></>
+      )}
       {/* Filtry */}
       <div className="flex flex-col flex-wrap justify-center align-middle w-full">
         <div className="align-middle justify-center basis-3/5 flex flex-row flex-wrap w-full mt-10">

@@ -4,14 +4,26 @@ import React from "react";
 
 export default async function Header() {
   return (
-    <header className="flex justify-between items-center w-full px-5 py-3 border-b-[1px] border-b-gray-500 bg-white">
-      <div className="w-full basis-1/5">LOGO</div>
-      <div className="w-full basis-3/5">
-        <SearchBar className="text-black w-full p-4 rounded-md border-2 border-gray-500 bg-palette-100" />
+    <header
+      className="flex justify-between items-center w-full px-5 py-3"
+      style={{ background: "rgba(64,55,217,0" }}
+    >
+      <div className="w-full basis-2/6"></div>
+      <div className="w-full basis-2/6 justify-between flex flex-row">
+        <h1
+          style={{ textShadow: "1px 5px 10px rgba(0,0,0,0.2)" }}
+          className="text-[1.9rem] font-extrabold text-white"
+        >
+          CarRenting<span className="text-white text-[1.2rem]">.Com</span>
+        </h1>
+        <Link
+          className="leading-[1.6rem] self-center text-white text-[1.2rem]"
+          href={"/login"}
+        >
+          Panel rezerwacji
+        </Link>
       </div>
-      <div className="w-full basis-1/5 flex justify-end">
-        <Link href={"/login"}>Zaloguj się</Link>
-      </div>
+      <div className="w-full basis-2/6 flex justify-end"></div>
     </header>
   );
 }
