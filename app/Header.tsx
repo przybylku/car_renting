@@ -1,12 +1,16 @@
+"use client";
 import SearchBar from "@/components/SearchBar";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
+
 export default async function Header() {
+  const router = usePathname();
+  const bg = router == "/" ? "transparent" : "#4037d9";
   return (
     <header
-      className="flex justify-between items-center w-full px-5 py-3"
-      style={{ background: "rgba(64,55,217,0" }}
+      className={`flex justify-between items-center w-full px-5 py-3  bg-[${ router && router == "/" ? "transparent" : "#4037d9"}]`}
     >
       <div className="w-full basis-2/6"></div>
       <div className="w-full basis-2/6 justify-between flex flex-row">
