@@ -30,6 +30,9 @@ async function getCars(
 ) {
   const res = await fetch("https://car-renting-eta.vercel.app/api/cars", {
     method: "POST",
+    headers: {
+      "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+  },
     body: JSON.stringify({
       price: price,
       age: age,
@@ -39,7 +42,9 @@ async function getCars(
   return await res.json();
 }
 async function getCar(id:number) {
-  const res = await fetch(`https://car-renting-eta.vercel.app/api/cars?id=${id}`, {method: 'GET'})
+  const res = await fetch(`https://car-renting-eta.vercel.app/api/cars?id=${id}`, {method: 'GET', headers: {
+    "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+}})
   return await res.json()
 }
 export default function FiltredList(props: Props) {

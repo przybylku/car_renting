@@ -22,5 +22,5 @@ const recipients = [
   .setHtml("<strong>This is the HTML content</strong>")
   .setText("This is the text content");
 
-    await mailerSend.email.send(emailParams);
+    await mailerSend.email.send(emailParams)
 }
