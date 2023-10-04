@@ -29,7 +29,8 @@ const recipients = [
             "Access-Control-Allow-Origin": "https://car-renting-przybylku.vercel.app",
             "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Accept": "application/json"
     
         }
     })
