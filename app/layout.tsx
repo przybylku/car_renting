@@ -24,8 +24,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} bg-[#f1f3f4]`}><Providers>
         <Header />
-        <main>{children}</main>
+        <main className="relative flex w-full flex-wrap">{children}</main>
         </Providers>
+
       </body>
     </html>
   );

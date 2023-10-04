@@ -5,29 +5,7 @@ export default function HomePage() {
   const date = new Date();
   const now = date.toLocaleDateString("en-CA");
   return (
-    <main className="relative flex w-full flex-wrap">
-      <div className="flex w-full flex-1 flex-col  px-[20px]">
-        {/* <h1
-          className="font-extrabold uppercase text-white text-[80px] px-4 mt-16 drop-shadow"
-          style={{ textShadow: "5px 5px 35px black" }}
-        >
-          Rent your deam car!
-        </h1>
-        <h2
-          className="font-light uppercase text-white text-[40px] px-4 mt-[-5px]"
-          style={{ textShadow: "5px 5px 15px black" }}
-        >
-          check out our cars
-        </h2>
-        <div className="flex flex-row flex-nowrap w-[25%] mt-[20px]">
-          <div className="basis-1/2 text-center bg-palette-100 ml-[20px] rounded px-1 text-[20px] leading-10">
-            Zobacz oferte
-          </div>
-          <div className="basis-1/2 text-center bg-palette-100 ml-[20px] rounded px-1 text-[20px] leading-10">
-            Wynajmij auto
-          </div>
-        </div> */}
-      </div>
+    <>
       <div className="relative top-[-400px] -z-20">
         <div
           style={{
@@ -46,40 +24,85 @@ export default function HomePage() {
         />
       </div>
       <HomeSearch />
-      <div className="flex flex-col flex-wrap w-full mt-[-550px] bg-white basis-full">
-        <div className="flex flex-row">
-          <div className="basis-1/5"></div>
-          <div className="basis-3/5 mt-[40px] flex-row flex">
-            <h1 className="flex flex-row flex-wrap w-1/3">
-              {/* <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="w-12 h-12"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M7.502 6h7.128A3.375 3.375 0 0118 9.375v9.375a3 3 0 003-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 00-.673-.05A3 3 0 0015 1.5h-1.5a3 3 0 00-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6zM13.5 3A1.5 1.5 0 0012 4.5h4.5A1.5 1.5 0 0015 3h-1.5z"
-                  clipRule="evenodd"
-                />
-                <path
-                  fillRule="evenodd"
-                  d="M3 9.375C3 8.339 3.84 7.5 4.875 7.5h9.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V9.375zM6 12a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75V12zm2.25 0a.75.75 0 01.75-.75h3.75a.75.75 0 010 1.5H9a.75.75 0 01-.75-.75zM6 15a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75V15zm2.25 0a.75.75 0 01.75-.75h3.75a.75.75 0 010 1.5H9a.75.75 0 01-.75-.75zM6 18a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75V18zm2.25 0a.75.75 0 01.75-.75h3.75a.75.75 0 010 1.5H9a.75.75 0 01-.75-.75z"
-                  clipRule="evenodd"
-                />
-              </svg> */}
-              <span className="text-[3rem] font-bold">1</span>
-              <span className="leading-[3.3rem] self-end text-[1.3rem]">
-                Elastyczna umowa wynajmu!
-              </span>
-              <p>
-                Większość rezerwacji można odwołać lub zmienić bezpłatnie do 48
-                godzin przed odbiorem samochodu.
-              </p>
+      <div className="flex flex-col w-full mt-[-550px] bg-[#21033A]">
+        <div className="flex justify-center">
+          <div className="mt-8 flex-col flex w-3/4">
+            <h1 className="text-xl font-bold mb-3 text-white">
+              Co CarRenting wnosi do stołu?
             </h1>
+            <div className="grid grid-cols-4 gap-3">
+              <div className="card">
+                <div className="svg">
+                  <svg
+                    viewBox="0 0 200 200"
+                    width="30px"
+                    height="30px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                  >
+                    <path d="M135 80c-8.271 0-15-6.729-15-15s6.729-15 15-15s15 6.729 15 15s-6.729 15-15 15zm0-20c-2.757 0-5 2.243-5 5s2.243 5 5 5s5-2.243 5-5s-2.243-5-5-5zm0 120c-24.813 0-45-20.187-45-45s20.187-45 45-45s45 20.187 45 45s-20.187 45-45 45zm0-80c-19.299 0-35 15.701-35 35s15.701 35 35 35s35-15.701 35-35s-15.701-35-35-35zm-67.021 75.05L24.95 132.021c-6.643-6.643-6.645-17.396 0-24.041l70.657-70.657C100.328 32.601 106.605 30 113.284 30H155c8.271 0 15 6.729 15 15v38.027a5 5 0 1 1-10 0V45c0-2.757-2.243-5-5-5h-41.716a14.9 14.9 0 0 0-10.606 4.393L32.021 115.05a6.997 6.997 0 0 0 0 9.9l43.029 43.029c2.583 2.582 6.768 2.738 9.524.35a4.998 4.998 0 0 1 7.053.506a5 5 0 0 1-.506 7.053c-6.706 5.808-16.872 5.432-23.142-.838zm64.191-15.927l-14.943-9.963a5 5 0 0 1-1.387-6.934a4.999 4.999 0 0 1 6.934-1.387l7.227 4.817V115c0-2.762 2.238-5 5-5s5 2.238 5 5v30.657l7.227-4.817c2.299-1.534 5.401-.911 6.934 1.387s.911 5.402-1.387 6.934l-14.943 9.963a5.009 5.009 0 0 1-5.662-.001z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h1>Best deals on cars</h1>
+                  <p>See deals from rental companies in 70,000+ locations.</p>
+                </div>
+              </div>
+              <div className="card">
+                <div className="svg">
+                  <svg
+                    viewBox="0 0 200 200"
+                    width="30px"
+                    height="30px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                  >
+                    <path d="M100 140c-22.1 0-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40s-17.9 40-40 40zm0-70c-16.5 0-30 13.5-30 30s13.5 30 30 30s30-13.5 30-30s-13.5-30-30-30zm0 90c-23.8 0-46.8-10-66.6-28.9C18.7 117 10.9 103 10.6 102.4a5.1 5.1 0 0 1 0-4.8c.3-.6 8-14.6 22.8-28.7C53.2 50 76.2 40 100 40s46.8 10 66.6 28.9C181.3 83 189.1 97 189.4 97.6c.8 1.5.8 3.3 0 4.8c-.3.6-8 14.6-22.8 28.7C146.8 150 123.8 160 100 160zm-79.2-60c6.4 10.3 34.3 50 79.2 50c44.9 0 72.7-39.7 79.2-50c-6.4-10.3-34.3-50-79.2-50c-44.9 0-72.7 39.7-79.2 50zm79.2 20c-2.8 0-5-2.2-5-5s2.2-5 5-5c5.5 0 10-4.5 10-10c0-2.8 2.2-5 5-5s5 2.2 5 5c0 11-9 20-20 20z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h1>Price transparency</h1>
+                  <p>See the total cost up front so there are no surprises.</p>
+                </div>
+              </div>
+              <div className="card">
+                <div className="svg">
+                  <svg
+                    viewBox="0 0 200 200"
+                    width="30px"
+                    height="30px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                  >
+                    <path d="M87.1 168.8c-35-6.5-59.5-38.2-57-73.7c.2-2.8 2.6-4.8 5.3-4.6c2.8.2 4.8 2.6 4.6 5.3c-2.2 30.4 18.8 57.5 48.8 63.1c2.7.5 4.5 3.1 4 5.8c-.4 2.8-3 4.6-5.7 4.1zm54.4-5.3l-15-15c-2-2-2-5.1 0-7.1s5.1-2 7.1 0l10.1 10.1l11.9-23.8c1.2-2.5 4.2-3.5 6.7-2.2c2.5 1.2 3.5 4.2 2.2 6.7l-15 30c-1.6 3.1-5.6 3.7-8 1.3zM159 89c-4.5-24.5-24-43.8-48.5-48.1c-21-3.7-41.8 3.7-55.5 19.1h30c2.8 0 5 2.2 5 5s-2.2 5-5 5H45c-2.8 0-5-2.2-5-5V25c0-2.8 2.2-5 5-5s5 2.2 5 5v25.7C65.9 34.6 89 27 112.2 31.1c28.6 5 51.4 27.6 56.6 56.1c.5 2.7-1.3 5.3-4 5.8s-5.3-1.3-5.8-4zm-14 101c-24.8 0-45-20.2-45-45s20.2-45 45-45s45 20.2 45 45s-20.2 45-45 45zm0-80c-19.3 0-35 15.7-35 35s15.7 35 35 35s35-15.7 35-35s-15.7-35-35-35z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h1>Price transparency</h1>
+                  <p>See the total cost up front so there are no surprises.</p>
+                </div>
+              </div>
+              <div className="card">
+                <div className="svg">
+                  <svg
+                    viewBox="0 0 200 200"
+                    width="30px"
+                    height="30px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                  >
+                    <path d="M33.389 179.733c-2.614-0.89-4.012-3.73-3.122-6.345c2.59-7.607 5.371-14.857 8.365-21.785 C32.903 135.298 30 120.406 30 107.312c0-31.385 13.929-54.718 41.399-69.351C93.774 26.043 125.266 20 165 20 c5.257 0 6.938 7.121 2.236 9.472c-17.541 8.77-18.18 28.942-18.919 52.3c-0.366 11.581-0.745 23.556-3.467 34.441 c-8.634 34.536-52.98 41.838-71.646 43.375c-2.757 0.208-5.167-1.822-5.393-4.573c-0.227-2.752 1.821-5.167 4.573-5.394 c16.518-1.359 55.699-7.573 62.765-35.834c2.461-9.846 2.823-21.276 3.173-32.332c0.596-18.798 1.207-38.09 12.002-51.167 C77.096 33.256 40 59.13 40 107.312c0 9.281 1.632 19.652 4.863 30.949c11.059-21.933 24.686-40.457 41.665-56.857 c1.985-1.918 5.151-1.864 7.07 0.123s1.864 5.151-0.123 7.07c-25.968 25.082-42.226 54.18-53.742 88.015 C38.843 179.227 36.002 180.622 33.389 179.733z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h1>Price transparency</h1>
+                  <p>See the total cost up front so there are no surprises.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </main>
+    </>
   );
 }
