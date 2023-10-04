@@ -43,7 +43,8 @@
     @apply text-sm;
   }
   .form-input{
-    @apply w-full border-[1px] border-gray-300 my-2 rounded h-[2.3rem] text-[1rem] px-3  }
+    @apply w-full border-[1px] border-gray-300 my-2 rounded h-[2.3rem] text-[1rem] px-3
+    }
 }
 input[type="text"]:focus-visible {
   border: none;

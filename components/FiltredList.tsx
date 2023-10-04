@@ -67,7 +67,7 @@ export default function FiltredList(props: Props) {
         {cars.length !== 0 ? (
           cars.map((item) => {
             return (
-              <Suspense fallback={<>Loading...</>}>
+              <Suspense fallback={<>Loading</>}>
                 {" "}
                 <div className="offert-box">
                   <Image
