@@ -6,6 +6,8 @@ import { Parametr } from "@/app/api/cars/route";
 import { UserIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/navigation";
 import { useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from "@/app/store";
+import { orderType, selectOrder, setCarId } from "@/app/store/featues/orderSlice";
 interface Props {
   price: [number, number];
   age: [number, number];
@@ -31,7 +33,8 @@ async function getCars(
 export default function FiltredList(props: Props) {
   const { price, age, type } = props;
   const [cars, setCars] = useState<Parametr[]>([]);
-  const order = useSelector((state) => state.order)
+  const order: orderType = useAppSelector(selectOrder)
+  const dispatch = useAppDispatch()
   const days: number | undefined = Number(order?.returnDate?.split("-")[2]) - Number(order?.pickupDate?.split('-')[2])
   const { push } = useRouter()
   useEffect(() => {
@@ -258,7 +261,7 @@ export default function FiltredList(props: Props) {
                         </p></div>
                       <div className="flex flex-row basis-1/3 justify-evenly items-center">
                         <p className="flex flex-col text-[0.8rem]">Koszt wynajmu na {days} dni <span className="text-[2rem]">{item.price * days} zł</span></p>
-                        <div className="flex w-[33%] h-min p-3 rounded-sm text-center bg-green-500 " onClick={() => {order.setCarId(item.id); return push("/order")}}><p className="text-center w-full align-middle justify-center self-center">Wynajmij</p></div>
+                        <div className="flex w-[33%] h-min p-3 rounded-sm text-center bg-green-500 " onClick={() => {dispatch(setCarId(item.id)); return push("/order")}}><p className="text-center w-full align-middle justify-center self-center">Wynajmij</p></div>
                         </div>
                     </div>
                   </div>

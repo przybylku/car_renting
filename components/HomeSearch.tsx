@@ -1,15 +1,12 @@
 "use client";
-
-
-import { useOrderStore } from "@/app/store/zustand";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import {useSelector, useDispatch} from 'react-redux'
 import { firstStepData } from "@/app/store/featues/orderSlice";
+import { useAppDispatch } from "@/app/store";
 export default function HomeSearch() {
   // const order = useSelector((state) => state)
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const date = new Date();
   const { push } = useRouter();
   const now = date.toLocaleDateString("en-CA");
