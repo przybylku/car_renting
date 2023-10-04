@@ -1,36 +1,53 @@
 import Image from "next/image";
 import HomeSearch from "@/components/HomeSearch";
 
+const offers: string[] = [
+  "Bezpłatne odwołanie większości rezerwacji",
+  "Ponad 60 000 lokalizacji",
+  "Najlepsza obsługa klienta",
+];
+
 export default function HomePage() {
   const date = new Date();
   const now = date.toLocaleDateString("en-CA");
   return (
     <>
-      <div className="relative top-[-400px] -z-20">
-        <div
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(64,55,217,1) 0%, rgba(91,91,255,1) 51%, rgba(0,212,255,0.2) 100%)",
-          }}
-          className="absolute w-full h-full bg-palette-200"
-        ></div>
-
-        <Image
-          src="/blue_sky.jpg"
-          style={{ zIndex: "-15" }}
-          alt="BG"
-          width={3840}
-          height={2160}
-        />
+      <div className="relative bg-blue-sky h-[calc(100vh-10rem)] w-full bg-[center_bottom_-2rem] bg-no-repeat bg-cover flex justify-center items-center flex-col before:w-full before:h-full before:absolute before:bg-gradient-to-b from-gradientColorStops-darkBlue via-gradientColorStops-darkBlue to-gradientColorStops-lastColor via-[20%] space-y-6 mmd:space-y-7">
+        <div className="z-20 flex flex-col space-y-4 mmd:space-y-5 mmd:mt-0 -mt-36">
+          <h1 className="text-center text-white text-[1.7rem] font-bold">
+            Wynajem samochodów - Znajdź ofertę, porównaj i oszczędzaj!
+          </h1>
+          <div className="flex mmd:flex-col mmd:items-center gap-5 z-20">
+            {offers.map((offer: string, index: number) => (
+              <div key={index} className="flex">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6 text-white mr-1"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+                <p className="text-white">{offer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <HomeSearch />
       </div>
-      <HomeSearch />
-      <div className="flex flex-col w-full mt-[-550px] bg-[#21033A]">
+      <div className="flex flex-col w-full bg-[#21033A] py-12">
         <div className="flex justify-center">
-          <div className="mt-8 flex-col flex w-3/4">
+          <div className="flex-col flex w-3/4">
             <h1 className="text-xl font-bold mb-3 text-white">
               Co CarRenting wnosi do stołu?
             </h1>
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-auto-fit justify-center align-center gap-3">
               <div className="card">
                 <div className="svg">
                   <svg

@@ -1,11 +1,12 @@
-"use client"
+"use client";
+
 import { Suspense, useEffect, useState } from "react";
 import RenderImage from "./RenderImage";
 import Image from "next/image";
 import { Parametr } from "@/app/api/cars/route";
 import { UserIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/navigation";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 interface Props {
   price: [number, number];
   age: [number, number];
@@ -31,9 +32,11 @@ async function getCars(
 export default function FiltredList(props: Props) {
   const { price, age, type } = props;
   const [cars, setCars] = useState<Parametr[]>([]);
-  const order = useSelector((state) => state.order)
-  const days: number | undefined = Number(order?.returnDate?.split("-")[2]) - Number(order?.pickupDate?.split('-')[2])
-  const { push } = useRouter()
+  const order = useSelector((state: any) => state.order);
+  const days: number | undefined =
+    Number(order?.returnDate?.split("-")[2]) -
+    Number(order?.pickupDate?.split("-")[2]);
+  const { push } = useRouter();
   useEffect(() => {
     const cars_a = getCars(price, age, type);
     cars_a.then((a) => setCars(a));
@@ -185,15 +188,20 @@ export default function FiltredList(props: Props) {
                           </span>
                         </p>
                         <p className="flex flex-col flex-wrap justify-center content-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 20" className="w-10 h-10 mr-1 basis-[90%]">
-      <path
-        stroke="#000"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M12 6h.01M9 20l-6-3V4l2 1m4 15l6-3m-6 3v-6m6 3l6 3V7l-2-1m-4 11v-3m0-7.8c0 1.767-1.5 3.2-3 4.8-1.5-1.6-3-3.033-3-4.8S10.343 3 12 3s3 1.433 3 3.2z"
-      ></path>
-    </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 20"
+                            className="w-10 h-10 mr-1 basis-[90%]"
+                          >
+                            <path
+                              stroke="#000"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M12 6h.01M9 20l-6-3V4l2 1m4 15l6-3m-6 3v-6m6 3l6 3V7l-2-1m-4 11v-3m0-7.8c0 1.767-1.5 3.2-3 4.8-1.5-1.6-3-3.033-3-4.8S10.343 3 12 3s3 1.433 3 3.2z"
+                            ></path>
+                          </svg>
                           <span className="basis-1/3 font-bold text-[0.8rem] mb-[-5px]">
                             Miejsce odbioru
                           </span>
@@ -202,64 +210,84 @@ export default function FiltredList(props: Props) {
                           </span>
                         </p>
                       </div>
-                      <div className="flex flex-col basis-1/3 mt-2"><p className="flex py-1 flex-row text-[0.9rem] align-middle justify-start leading-[20px]">
-                      <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="#0f3"
-      stroke="#0f3"
-      version="1.1"
-      viewBox="-2.4 -2.4 16.8 16.8"
-      xmlSpace="preserve"
-      className="mr-1"
-    >
-      <path
-        fill="#1D1D1B"
-        d="M5 9.8535156L0 4.8535156 0.7070313 4.1464844 5 8.4394531 11.2929688 2.1464844 12 2.8535156z"
-      ></path>
-    </svg>  Nielimitowane kilometry
+                      <div className="flex flex-col basis-1/3 mt-2">
+                        <p className="flex py-1 flex-row text-[0.9rem] align-middle justify-start leading-[20px]">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="#0f3"
+                            stroke="#0f3"
+                            version="1.1"
+                            viewBox="-2.4 -2.4 16.8 16.8"
+                            xmlSpace="preserve"
+                            className="mr-1"
+                          >
+                            <path
+                              fill="#1D1D1B"
+                              d="M5 9.8535156L0 4.8535156 0.7070313 4.1464844 5 8.4394531 11.2929688 2.1464844 12 2.8535156z"
+                            ></path>
+                          </svg>{" "}
+                          Nielimitowane kilometry
                         </p>
                         <p className="flex py-1 flex-row align-middle justify-start text-[0.9rem] leading-[20px]">
-                      <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="#0f3"
-      stroke="#0f3"
-      version="1.1"
-      viewBox="-2.4 -2.4 16.8 16.8"
-      xmlSpace="preserve"
-      className="mr-1"
-    >
-      <path
-        fill="#1D1D1B"
-        d="M5 9.8535156L0 4.8535156 0.7070313 4.1464844 5 8.4394531 11.2929688 2.1464844 12 2.8535156z"
-      ></path>
-    </svg>  Darmowe ubezpieczenie
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="#0f3"
+                            stroke="#0f3"
+                            version="1.1"
+                            viewBox="-2.4 -2.4 16.8 16.8"
+                            xmlSpace="preserve"
+                            className="mr-1"
+                          >
+                            <path
+                              fill="#1D1D1B"
+                              d="M5 9.8535156L0 4.8535156 0.7070313 4.1464844 5 8.4394531 11.2929688 2.1464844 12 2.8535156z"
+                            ></path>
+                          </svg>{" "}
+                          Darmowe ubezpieczenie
                         </p>
                         <p className="flex py-1 flex-row align-middle justify-start text-[0.9rem] leading-[20px]">
-                      <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="#0f3"
-      stroke="#0f3"
-      version="1.1"
-      viewBox="-2.4 -2.4 16.8 16.8"
-      xmlSpace="preserve"
-      className="mr-1"
-    >
-      <path
-        fill="#1D1D1B"
-        d="M5 9.8535156L0 4.8535156 0.7070313 4.1464844 5 8.4394531 11.2929688 2.1464844 12 2.8535156z"
-      ></path>
-    </svg>  Ochrona od kradzieży
-                        </p></div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="#0f3"
+                            stroke="#0f3"
+                            version="1.1"
+                            viewBox="-2.4 -2.4 16.8 16.8"
+                            xmlSpace="preserve"
+                            className="mr-1"
+                          >
+                            <path
+                              fill="#1D1D1B"
+                              d="M5 9.8535156L0 4.8535156 0.7070313 4.1464844 5 8.4394531 11.2929688 2.1464844 12 2.8535156z"
+                            ></path>
+                          </svg>{" "}
+                          Ochrona od kradzieży
+                        </p>
+                      </div>
                       <div className="flex flex-row basis-1/3 justify-evenly items-center">
-                        <p className="flex flex-col text-[0.8rem]">Koszt wynajmu na {days} dni <span className="text-[2rem]">{item.price * days} zł</span></p>
-                        <div className="flex w-[33%] h-min p-3 rounded-sm text-center bg-green-500 " onClick={() => {order.setCarId(item.id); return push("/order")}}><p className="text-center w-full align-middle justify-center self-center">Wynajmij</p></div>
+                        <p className="flex flex-col text-[0.8rem]">
+                          Koszt wynajmu na {days} dni{" "}
+                          <span className="text-[2rem]">
+                            {item.price * days} zł
+                          </span>
+                        </p>
+                        <div
+                          className="flex w-[33%] h-min p-3 rounded-sm text-center bg-green-500 "
+                          onClick={() => {
+                            order.setCarId(item.id);
+                            return push("/order");
+                          }}
+                        >
+                          <p className="text-center w-full align-middle justify-center self-center">
+                            Wynajmij
+                          </p>
                         </div>
+                      </div>
                     </div>
                   </div>
                 </div>
