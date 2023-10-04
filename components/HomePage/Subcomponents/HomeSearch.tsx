@@ -1,12 +1,11 @@
 "use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSelector, useDispatch } from "react-redux";
 import { firstStepData } from "@/app/store/featues/orderSlice";
 import { useAppDispatch } from "@/app/store";
 export default function HomeSearch() {
-  // const order = useSelector((state) => state)
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const date = new Date();
   const { push } = useRouter();
   const now = date.toLocaleDateString("en-CA");
@@ -51,7 +50,6 @@ export default function HomeSearch() {
             Szukaj
           </div>
         </div>
-        {/* <div className="basis-1/4">{order?.pickupDate}</div> */}
       </div>
     </>
   );

@@ -16,7 +16,10 @@ export default async function Header() {
           style={{ textShadow: "1px 5px 10px rgba(0,0,0,0.2)" }}
           className="text-[1.9rem] font-extrabold text-white"
         >
-          CarRenting<span className="text-white text-[1.2rem]">.Com</span>
+          <Link href={"/"}>
+            CarRenting
+            <span className="text-white text-[1.2rem]">.Com</span>
+          </Link>
         </h1>
         {/* <Link
           className="leading-[1.6rem] self-center text-white text-[1.2rem]"

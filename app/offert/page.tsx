@@ -25,7 +25,7 @@ export default function OffertPage() {
   const [f_age, set_f_age] = useState<[number, number]>([0, 2023]);
   const [f_engine, set_f_engine] = useState<boolean>(false); // true - Benzyna // false - diesel
   const [modal_show, setModal_show] = useState<boolean>(true); // Pokazywanie modalu
-  const order = useAppSelector(selectOrder)
+  const order = useAppSelector(selectOrder);
   const handleModal = (show: boolean) => {
     return setModal_show(show);
   };
@@ -75,7 +75,7 @@ export default function OffertPage() {
       {/* Filtry */}
       <div className="flex flex-col flex-wrap justify-center align-middle w-full">
         <div className="align-middle basis-3/5 flex flex-row flex-wrap w-full mt-10 justify-center">
-          <div className="flex w-full justify-center flex-row basis-full justify-center h-[auto] mb-5">
+          <div className="flex w-full justify-center flex-row basis-full  h-[auto] mb-5">
             <div className=" border-2 border-palette-200 p-3 rounded-md min-w-[600px] flex flex-row flex-nowrap">
               <div className="flex-col flex basis-1/3 flex-nowrap">
                 <p className="font-bold text-center text-[1.1rem] mb-2">
