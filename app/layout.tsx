@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} bg-white`}>
         <Header />
-        <main>{children}</main>
+        <main className="relative flex w-full flex-wrap">{children}</main>
       </body>
     </html>
   );
