@@ -21,7 +21,6 @@ const recipients = [
   .setSubject("This is a Subject")
   .setHtml("<strong>This is the HTML content</strong>")
   .setText("This is the text content")
-
     await fetch("https://api.mailersend.com/v1/email", {
         method: "POST",
         body: JSON.stringify(emailParams),
@@ -29,7 +28,8 @@ const recipients = [
             "Authorization": "Bearer mlsn.d93d86af891ac312348915a37473c6032626951ed2e0f2a4bbc2797d0f2cfa05",
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+            "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
+            "Content-Type": "application/json"
     
         }
     })
