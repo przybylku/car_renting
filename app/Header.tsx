@@ -9,7 +9,7 @@ export default async function Header() {
   const router = usePathname();
   const bg = router == "/" ? "transparent" : "#4037d9";
   return (
-    <header
+    <header style={{backgroundColor: `${bg}`}}
       className={`flex justify-between items-center w-full px-5 py-3  bg-[${ router && router == "/" ? "transparent" : "#4037d9"}]`}
     >
       <div className="w-full basis-2/6"></div>

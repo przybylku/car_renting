@@ -1,10 +1,15 @@
 "use client";
+
+
 import { useOrderStore } from "@/app/store/zustand";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import useStore from '@/app/utils/useStore'
+import { OrderStore, setSessionStorage, useSessionStorage } from "@/app/store/useSessionStorage";
 export default function HomeSearch() {
-  const changeOrderStage1 = useOrderStore((state) => state.changeOrderStage1);
-  const order = useOrderStore((state) => state);
+  const changeOrderStage1 = setSessionStorage
+  const order: OrderStore = useSessionStorage("order")
   const date = new Date();
   const { push } = useRouter();
   const now = date.toLocaleDateString("en-CA");
@@ -102,7 +107,7 @@ export default function HomeSearch() {
           </div>
           <div
             onClick={() => {
-              changeOrderStage1(pickup, return_, location);
+              changeOrderStage1 ? changeOrderStage1("order", {location, pickup, return_}): "";
               return push("/offert");
             }}
             className="px-2 py-2 ml-1 h-[60px] rounded-md basis-1/6 bg-green-500 text-center self-center leading-[45px] text-white font-bold text-[1.5rem]"
@@ -110,7 +115,7 @@ export default function HomeSearch() {
             Szukaj
           </div>
         </div>
-        <div className="basis-1/4">{order.pickupDate}</div>
+        <div className="basis-1/4">{order?.pickupDate}</div>
       </div>
     </>
   );

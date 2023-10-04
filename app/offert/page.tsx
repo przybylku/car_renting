@@ -7,7 +7,8 @@
 import FiltredList from "@/components/FiltredList";
 import Modal from "@/components/Modal";
 import { useState } from "react";
-import { useOrderStore } from "../store/zustand";
+import { OrderStore, useOrderStore } from "../store/zustand";
+import useStore from "../utils/useStore";
 enum Filters {
   PRICE,
   AGE,
@@ -24,7 +25,7 @@ export default function OffertPage() {
   const [f_age, set_f_age] = useState<[number, number]>([0, 2023]);
   const [f_engine, set_f_engine] = useState<boolean>(false); // true - Benzyna // false - diesel
   const [modal_show, setModal_show] = useState<boolean>(true); // Pokazywanie modalu
-  const order = useOrderStore((state) => state);
+  const order: OrderStore | undefined = useStore(useOrderStore,(state) => {console.log(state); return state});
   const handleModal = (show: boolean) => {
     return setModal_show(show);
   };
@@ -78,10 +79,10 @@ export default function OffertPage() {
             <div className=" border-2 border-palette-200 p-3 rounded-md min-w-[600px] flex flex-row flex-nowrap">
               <div className="flex-col flex basis-1/3 flex-nowrap">
                 <p className="font-bold text-center text-[1.1rem] mb-2">
-                  {order.pickupLocation}
+                  {order?.pickupLocation}
                 </p>{" "}
                 <p className="text-[0.8rem] text-center tracking-tight">
-                  {order.pickupDate}, 10:00
+                  {order?.pickupDate}, 10:00
                 </p>
               </div>
               <p className="m-[15px] text-center ml-4 text-[1.3rem] leading-5 font-bold">
@@ -89,10 +90,10 @@ export default function OffertPage() {
               </p>
               <div className="flex-col flex basis-1/3">
                 <p className="font-bold text-center text-[1.1rem] mb-2">
-                  {order.pickupLocation}
+                  {order?.pickupLocation}
                 </p>{" "}
                 <p className="text-[0.8rem] text-center tracking-tight">
-                  {order.returnDate}, 10:00
+                  {order?.returnDate}, 10:00
                 </p>
               </div>
               <p className="m-[15px] ml-4 text-[1.3rem] leading-5 font-bold">

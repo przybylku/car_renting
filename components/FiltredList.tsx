@@ -1,9 +1,12 @@
+"use client"
 import { Suspense, useEffect, useState } from "react";
 import RenderImage from "./RenderImage";
 import { useOrderStore } from "@/app/store/zustand";
 import Image from "next/image";
 import { Parametr } from "@/app/api/cars/route";
 import { UserIcon } from "@heroicons/react/20/solid";
+import { useRouter } from "next/navigation";
+import useStore from "@/app/utils/useStore";
 interface Props {
   price: [number, number];
   age: [number, number];
@@ -29,8 +32,9 @@ async function getCars(
 export default function FiltredList(props: Props) {
   const { price, age, type } = props;
   const [cars, setCars] = useState<Parametr[]>([]);
-  const order = useOrderStore((state) => state);
-  const days: number = Number(order.returnDate.split("-")[2]) - Number(order.pickupDate.split('-')[2])
+  const order = useStore(useOrderStore,(state) => state);
+  const days: number | undefined = Number(order?.returnDate?.split("-")[2]) - Number(order?.pickupDate?.split('-')[2])
+  const { push } = useRouter()
   useEffect(() => {
     const cars_a = getCars(price, age, type);
     cars_a.then((a) => setCars(a));
@@ -255,7 +259,7 @@ export default function FiltredList(props: Props) {
                         </p></div>
                       <div className="flex flex-row basis-1/3 justify-evenly items-center">
                         <p className="flex flex-col text-[0.8rem]">Koszt wynajmu na {days} dni <span className="text-[2rem]">{item.price * days} zł</span></p>
-                        <div className="flex w-[33%] h-min p-3 rounded-sm text-center bg-green-500 "><p className="text-center w-full align-middle justify-center self-center">Wynajmij</p></div>
+                        <div className="flex w-[33%] h-min p-3 rounded-sm text-center bg-green-500 " onClick={() => {order.setCarId(item.id); return push("/order")}}><p className="text-center w-full align-middle justify-center self-center">Wynajmij</p></div>
                         </div>
                     </div>
                   </div>
