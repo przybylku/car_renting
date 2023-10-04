@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import { Parametr } from "../api/cars/route";
 import {useSelector} from 'react-redux'

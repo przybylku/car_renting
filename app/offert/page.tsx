@@ -7,7 +7,6 @@
 import FiltredList from "@/components/FiltredList";
 import Modal from "@/components/Modal";
 import { useState } from "react";
-import {useSelector, useDispatch} from 'react-redux'
 import { useAppSelector } from "../store";
 import { selectOrder } from "../store/featues/orderSlice";
 enum Filters {

@@ -28,7 +28,6 @@ export default function RootLayout({
         <main className="relative flex w-full flex-wrap">{children}</main></PersistGate>
 
         </Providers>
-
       </body>
     </html>
   );
