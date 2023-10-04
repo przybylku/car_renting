@@ -28,7 +28,7 @@ async function getCars(
   id?: number,
 
 ) {
-  const res = await fetch("http://localhost:3000/api/cars", {
+  const res = await fetch("https://car-renting-eta.vercel.app/api/cars", {
     method: "POST",
     body: JSON.stringify({
       price: price,
@@ -39,7 +39,7 @@ async function getCars(
   return await res.json();
 }
 async function getCar(id:number) {
-  const res = await fetch(`http://localhost:3000/api/cars?id=${id}`, {method: 'GET'})
+  const res = await fetch(`https://car-renting-eta.vercel.app/api/cars?id=${id}`, {method: 'GET'})
   return await res.json()
 }
 export default function FiltredList(props: Props) {
