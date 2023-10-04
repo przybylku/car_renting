@@ -1,8 +1,8 @@
 import {
   BestDeals,
   BookWith,
-  EcoFriendly,
   PriceTransparency,
+  EcoFriendly,
 } from "@/components/svg";
 
 import React from "react";
@@ -15,24 +15,28 @@ type cardType = {
 
 const cards: cardType[] = [
   {
-    title: "Best deals on cars",
-    description: "See deals from rental companies in 70,000+ locations.",
+    title: "Najlepsze oferty na samochody",
+    description:
+      "Zobacz oferty od firm wynajmujących w ponad 70 000 lokalizacjach.",
     icon: <BestDeals />,
   },
   {
-    title: "Price transparency",
-    description: "See the total cost up front so there are no surprises.",
+    title: "Przejrzystość cen",
+    description:
+      "Zobacz całkowity koszt z góry, aby nie było żadnych niespodzianek.",
     icon: <BookWith />,
   },
   {
-    title: "Book with flexibility",
-    description: "Find cars with free cancellation and enhanced cleaning.",
-    icon: <EcoFriendly />,
+    title: "Rezerwuj z elastycznością",
+    description:
+      "Znajdź samochody z możliwością darmowej anulacji i ulepszonego sprzątania.",
+    icon: <PriceTransparency />,
   },
   {
-    title: "Eco-friendly options",
-    description: "Filter your search to easily see hybrids and electric cars.",
-    icon: <PriceTransparency />,
+    title: "Opcje przyjazne dla środowiska",
+    description:
+      "Filtruj swoje wyszukiwanie, aby łatwo znaleźć hybrydy i samochody elektryczne.",
+    icon: <EcoFriendly />,
   },
 ];
 

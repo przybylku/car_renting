@@ -30,6 +30,7 @@ const config: Config = {
       },
       screens: {
         mmd: { max: "874px" },
+        mnd: { max: "1358px" },
       },
       gridTemplateColumns: {
         "auto-fit": "repeat(auto-fit, minmax(250px, 1fr))",

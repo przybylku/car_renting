@@ -58,18 +58,17 @@ export default function FiltredList(props: Props) {
                 {" "}
                 <div className="offert-box">
                   <Image
-                    style={{ width: "25%" }}
-                    className="rounded-md basis-1/4"
+                    className="rounded-md w-auto mnd:w-auto  h-auto"
                     src={`/${item.src}`}
                     alt=""
                     width={1000}
                     height={1000}
                   />
-                  <div className="flex flex-col flex-nowrap h-[50%] basis-4/6">
+                  <div className="flex flex-col flex-nowrap pb-4">
                     <p className="flex flex-row p-4 text-[1.5rem]">
                       {item?.name}
                     </p>
-                    <div className="flex flex-row flex-nowrap pl-3 justify-start">
+                    <div className="flex flex-row flex-nowrap mnd:flex-col pl-3 justify-start">
                       <p className="flex flex-row px-1 basis-auto text-[0.9rem]">
                         <UserIcon className="w-5 h-5 mr-1" />
                         {item.seats} siedzeń
@@ -174,7 +173,7 @@ export default function FiltredList(props: Props) {
                   </div>
                   <div className="flex flex-row flex-wrap mt-2 basis-full">
                     <hr className="w-full basis-full border-b-[1px] rounded-sm" />{" "}
-                    <div className="flex flex-row w-full justify-center ">
+                    <div className="flex flex-row w-full justify-center mnd:flex-col ">
                       <div className="flex flex-col basis-1/3">
                         <p className="flex flex-col flex-wrap justify-center content-start">
                           <svg
@@ -275,7 +274,7 @@ export default function FiltredList(props: Props) {
                           Ochrona od kradzieży
                         </p>
                       </div>
-                      <div className="flex flex-row basis-1/3 justify-evenly items-center">
+                      <div className="flex flex-row basis-1/3 justify-evenly mnd:justify-between mt-3 items-center">
                         <p className="flex flex-col text-[0.8rem]">
                           Koszt wynajmu na {days} dni{" "}
                           <span className="text-[2rem]">
@@ -283,15 +282,13 @@ export default function FiltredList(props: Props) {
                           </span>
                         </p>
                         <div
-                          className="flex w-[33%] h-min p-3 rounded-sm text-center bg-green-500 "
+                          className="flex h-min p-3 rounded-sm text-center bg-blue-700 text-white cursor-pointer "
                           onClick={() => {
                             dispatch(setCarId(item.id));
                             return push("/order");
                           }}
                         >
-                          <p className="text-center w-full align-middle justify-center self-center">
-                            Wynajmij
-                          </p>
+                          Wynajmij
                         </div>
                       </div>
                     </div>
