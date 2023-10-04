@@ -1,3 +1,4 @@
+"use client";
 import { orderType } from "@/app/store/featues/orderSlice";
 import { useEffect, useState } from "react";
 

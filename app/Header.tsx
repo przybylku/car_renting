@@ -1,11 +1,7 @@
-"use client";
-import SearchBar from "@/components/SearchBar";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React from "react";
 
 export default async function Header() {
-  const router = usePathname();
   return (
     <header
       className={`w-full px-5 py-3 flex justify-center bg-gradientColorStops-darkBlue
@@ -21,12 +17,6 @@ export default async function Header() {
             <span className="text-white text-[1.2rem]">.Com</span>
           </Link>
         </h1>
-        {/* <Link
-          className="leading-[1.6rem] self-center text-white text-[1.2rem]"
-          href={"/login"}
-        >
-          Panel rezerwacji
-        </Link> */}
       </div>
     </header>
   );

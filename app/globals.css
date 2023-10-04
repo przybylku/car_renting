@@ -42,6 +42,10 @@
   .card p {
     @apply text-sm;
   }
+
+  .nav-link {
+    @apply hover:bg-gradientColorStops-darkBlue p-1 transition-all hover:text-white rounded-md;
+  }
 }
 input[type="text"]:focus-visible {
   border: none;

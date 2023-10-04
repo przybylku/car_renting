@@ -44,8 +44,8 @@ export default function FiltredList(props: Props) {
     Number(order?.pickupDate?.split("-")[2]);
   const { push } = useRouter();
   useEffect(() => {
-    const cars_a = getCars(price, age, type);
-    cars_a.then((a) => setCars(a));
+    // const cars_a = getCars(price, age, type);
+    // cars_a.then((a) => setCars(a));
   }, [props]);
 
   return (
@@ -54,7 +54,7 @@ export default function FiltredList(props: Props) {
         {cars.length !== 0 ? (
           cars.map((item) => {
             return (
-              <Suspense fallback={<>Loading...</>}>
+              <Suspense fallback={<>Loading</>}>
                 {" "}
                 <div className="offert-box">
                   <Image
