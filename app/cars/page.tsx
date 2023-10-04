@@ -1,6 +1,6 @@
 async function getCars() {
-  const res = await fetch("http://localhost:3000/api/cars");
-  return res.json();
+  // const res = await fetch("http://localhost:3000/api/cars");
+  // return res.json();
 }
 
 export default async function CarsPage() {
