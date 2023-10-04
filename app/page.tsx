@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useOrderStore } from "./store/zustand";
 import HomeSearch from "@/components/HomeSearch";
 
 export default function HomePage() {
