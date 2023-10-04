@@ -26,7 +26,7 @@ const recipients = [
         body: JSON.stringify(emailParams),
         headers: {
             "Authorization": "Bearer mlsn.d93d86af891ac312348915a37473c6032626951ed2e0f2a4bbc2797d0f2cfa05",
-            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Origin": "https://car-renting-przybylku.vercel.app",
             "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
             "Content-Type": "application/json"
