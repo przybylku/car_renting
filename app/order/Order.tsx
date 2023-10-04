@@ -7,7 +7,9 @@ import OrderSVG from "./[svg]/orderSvg";
 import FiltredList from "@/components/FiltredList";
 import DriverFormHook, { PaymentForm } from "@/components/Order/orderForm";
 async function handleGettingCar(id: Number){
-    const res = await fetch(`https://car-renting-eta.vercel.app/api/cars?id=${id}`, {method: "GET"});
+    const res = await fetch(`https://car-renting-eta.vercel.app/api/cars?id=${id}`, {method: "GET", headers: {
+        "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+    }});
     return await res.json();
 }
 
