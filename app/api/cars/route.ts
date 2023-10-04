@@ -54,7 +54,7 @@ const cars_data: Parametr[] = [
 export async function GET(request: NextRequest) {
   const params: number = Number(request.nextUrl.searchParams.get('id'))
   const res = cars_data.filter((i) => i.id === params)
-  return NextResponse.json({res});
+  return NextResponse.json(res);
 }
 
 export async function POST(request: NextRequest) {
