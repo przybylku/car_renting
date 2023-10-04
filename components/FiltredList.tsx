@@ -6,7 +6,6 @@ import Image from "next/image";
 import { Parametr } from "@/app/api/cars/route";
 import { UserIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/navigation";
-import { useSelector } from 'react-redux'
 import { useAppDispatch, useAppSelector } from "@/app/store";
 import { orderType, selectOrder, setCarId } from "@/app/store/featues/orderSlice";
 interface Props {
