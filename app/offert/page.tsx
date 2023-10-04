@@ -7,8 +7,7 @@
 import FiltredList from "@/components/FiltredList";
 import Modal from "@/components/Modal";
 import { useState } from "react";
-import { OrderStore, useOrderStore } from "../store/zustand";
-import useStore from "../utils/useStore";
+import {useSelector, useDispatch} from 'react-redux'
 enum Filters {
   PRICE,
   AGE,
@@ -25,7 +24,7 @@ export default function OffertPage() {
   const [f_age, set_f_age] = useState<[number, number]>([0, 2023]);
   const [f_engine, set_f_engine] = useState<boolean>(false); // true - Benzyna // false - diesel
   const [modal_show, setModal_show] = useState<boolean>(true); // Pokazywanie modalu
-  const order: OrderStore | undefined = useStore(useOrderStore,(state) => {console.log(state); return state});
+  const order = useSelector((state) => state.order)
   const handleModal = (show: boolean) => {
     return setModal_show(show);
   };

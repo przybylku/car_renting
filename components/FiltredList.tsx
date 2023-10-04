@@ -1,12 +1,11 @@
 "use client"
 import { Suspense, useEffect, useState } from "react";
 import RenderImage from "./RenderImage";
-import { useOrderStore } from "@/app/store/zustand";
 import Image from "next/image";
 import { Parametr } from "@/app/api/cars/route";
 import { UserIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/navigation";
-import useStore from "@/app/utils/useStore";
+import { useSelector } from 'react-redux'
 interface Props {
   price: [number, number];
   age: [number, number];
@@ -32,7 +31,7 @@ async function getCars(
 export default function FiltredList(props: Props) {
   const { price, age, type } = props;
   const [cars, setCars] = useState<Parametr[]>([]);
-  const order = useStore(useOrderStore,(state) => state);
+  const order = useSelector((state) => state.order)
   const days: number | undefined = Number(order?.returnDate?.split("-")[2]) - Number(order?.pickupDate?.split('-')[2])
   const { push } = useRouter()
   useEffect(() => {
