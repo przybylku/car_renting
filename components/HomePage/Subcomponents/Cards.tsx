@@ -33,9 +33,9 @@ const cards: cardType[] = [
     icon: <PriceTransparency />,
   },
   {
-    title: "Opcje przyjazne dla środowiska",
+    title: "Przyjazne sortowanie",
     description:
-      "Filtruj swoje wyszukiwanie, aby łatwo znaleźć hybrydy i samochody elektryczne.",
+      "Filtruj swoje wyszukiwanie, aby łatwo znaleźć silniki diesel'a lub silniki benzynowe.",
     icon: <EcoFriendly />,
   },
 ];
