@@ -13,6 +13,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "blue-sky": 'url("../public/blue-sky.jpg")',
+        contact: "url('../public/contact.jpg')",
+        contact2: "url('../public/contact2.png')",
+      },
+      boxShadow: {
+        contact: "0px 0px 40px -15px var(--tw-shadow)",
+        contactThic: "0px 0px 100px 0px var(--tw-shadow)",
+      },
+      backgroundSize: {
+        "50-100": "50% 100%",
       },
       colors: {
         palette: {
