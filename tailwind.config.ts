@@ -18,7 +18,7 @@ const config: Config = {
       },
       boxShadow: {
         contact: "0px 0px 40px -15px var(--tw-shadow)",
-        contactThic: "0px 0px 100px 0px var(--tw-shadow)",
+        contactThic: "0px 0px 60px 0px var(--tw-shadow)",
       },
       backgroundSize: {
         "50-100": "50% 100%",

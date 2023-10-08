@@ -5,7 +5,6 @@ import Header from "./Header";
 import { Providers } from "./store/provider";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./store/store";
-import Footer from "@/components/Footer";
 
 const poppins = Poppins({
   weight: ["400", "300", "700", "800"],
@@ -30,7 +29,6 @@ export default function RootLayout({
           <Header />
           {/* <NavBar /> */}
           <main className="relative flex w-full flex-wrap">{children}</main>
-          <Footer />
         </Providers>
       </body>
     </html>

@@ -42,9 +42,12 @@
   .card p {
     @apply text-sm;
   }
-  .form-input{
-    @apply w-full border-[1px] border-gray-300 my-2 rounded h-[2.3rem] text-[1rem] px-3
-    }
+  .form-input {
+    @apply w-full border-[1px] border-gray-300 my-2 rounded h-[2.3rem] text-[1rem] px-3;
+  }
+  .nav-link {
+    @apply hover:bg-gradientColorStops-darkBlue p-1 transition-all hover:text-white rounded-md;
+  }
 }
 input[type="text"]:focus-visible {
   border: none;
