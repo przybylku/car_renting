@@ -12,19 +12,27 @@ import {
   selectOrder,
   setCarId,
 } from "@/app/store/featues/orderSlice";
+import { idText } from "typescript";
 interface Props {
   price: [number, number];
   age: [number, number];
   type: boolean;
+  carId?: number
+  forSale?: boolean
 }
 
 async function getCars(
   price: [number, number],
   age: [number, number],
-  type: boolean
+  type: boolean,
+  id?: number,
+
 ) {
-  const res = await fetch("http://localhost:3000/api/cars", {
+  const res = await fetch("https://car-renting-eta.vercel.app/api/cars", {
     method: "POST",
+    headers: {
+      "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+  },
     body: JSON.stringify({
       price: price,
       age: age,
@@ -33,9 +41,14 @@ async function getCars(
   });
   return await res.json();
 }
-
+async function getCar(id:number) {
+  const res = await fetch(`https://car-renting-eta.vercel.app/api/cars?id=${id}`, {method: 'GET', headers: {
+    "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+}})
+  return await res.json()
+}
 export default function FiltredList(props: Props) {
-  const { price, age, type } = props;
+  const { price, age, type, carId, forSale } = props;
   const [cars, setCars] = useState<Parametr[]>([]);
   const order: orderType = useAppSelector(selectOrder);
   const dispatch = useAppDispatch();
@@ -44,8 +57,13 @@ export default function FiltredList(props: Props) {
     Number(order?.pickupDate?.split("-")[2]);
   const { push } = useRouter();
   useEffect(() => {
-    // const cars_a = getCars(price, age, type);
-    // cars_a.then((a) => setCars(a));
+    if(carId){
+      getCar(carId).then((data) => setCars(data))
+    }else{ 
+      const cars_a = getCars(price, age, type);
+      cars_a.then((a) => setCars(a));
+    }
+    
   }, [props]);
 
   return (
@@ -274,7 +292,7 @@ export default function FiltredList(props: Props) {
                           Ochrona od kradzieży
                         </p>
                       </div>
-                      <div className="flex flex-row basis-1/3 justify-evenly mnd:justify-between mt-3 items-center">
+                      {!forSale ? <div className="flex flex-row basis-1/3 justify-evenly mnd:justify-between mt-3 items-center">
                         <p className="flex flex-col text-[0.8rem]">
                           Koszt wynajmu na {days} dni{" "}
                           <span className="text-[2rem]">
@@ -290,7 +308,7 @@ export default function FiltredList(props: Props) {
                         >
                           Wynajmij
                         </div>
-                      </div>
+                      </div> : <></> }
                     </div>
                   </div>
                 </div>

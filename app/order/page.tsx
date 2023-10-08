@@ -1,10 +1,8 @@
-import React from "react";
-import OrderPage from "./OrderPage";
+"use client";
 
-export default async function page() {
-  return (
-    <>
-      <OrderPage />
-    </>
-  );
+import OrderComponent from "./Order";
+export default function OrderPage(){
+    return (
+            <OrderComponent/>
+    )
 }
