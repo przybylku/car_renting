@@ -13,7 +13,7 @@ export default function OrderStatus({order, car}: {order: orderType, car?: any})
     })
     useEffect(() => {
         function handleResize(){
-            return setWidth(window.innerWidth)
+            return setWidth(window ? window.innerWidth: 1920)
         }
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
@@ -56,7 +56,7 @@ export default function OrderStatus({order, car}: {order: orderType, car?: any})
           </div>
         </div>
         </div></> : <>
-            <div className="flex flex-col self-end w-full">
+            <div className="flex flex-col w-full">
             <hr className="border-b-2"/>
                 <p className="text-[1.3rem] font-bold pt-2">{order.pickupLocation}</p>
                 <p>{dateTime}, 10:00 - {dateTimeReturn}, 10:00</p>
