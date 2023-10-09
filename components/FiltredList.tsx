@@ -13,6 +13,7 @@ import {
   setCarId,
 } from "@/app/store/featues/orderSlice";
 import { idText } from "typescript";
+import dayjs from "dayjs";
 interface Props {
   price: [number, number];
   age: [number, number];
@@ -28,7 +29,7 @@ async function getCars(
   id?: number,
 
 ) {
-  const res = await fetch("https://car-renting-eta.vercel.app/api/cars", {
+  const res = await fetch("/api/cars", {
     method: "POST",
     headers: {
       "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
@@ -42,7 +43,7 @@ async function getCars(
   return await res.json();
 }
 async function getCar(id:number) {
-  const res = await fetch(`https://car-renting-eta.vercel.app/api/cars?id=${id}`, {method: 'GET', headers: {
+  const res = await fetch(`/api/cars?id=${id}`, {method: 'GET', headers: {
     "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
 }})
   return await res.json()
@@ -55,6 +56,9 @@ export default function FiltredList(props: Props) {
   const days: number | undefined =
     Number(order?.returnDate?.split("-")[2]) -
     Number(order?.pickupDate?.split("-")[2]);
+    const date1 = dayjs(order?.returnDate as string)
+    const date2 = dayjs(order?.pickupDate as string)
+  const time: number | undefined = date1.diff(date2, "days")
   const { push } = useRouter();
   useEffect(() => {
     if(carId){
@@ -191,7 +195,7 @@ export default function FiltredList(props: Props) {
                   </div>
                   <div className="flex flex-row flex-wrap mt-2 basis-full">
                     <hr className="w-full basis-full border-b-[1px] rounded-sm" />{" "}
-                    <div className="flex flex-row w-full justify-center mnd:flex-col ">
+                    <div className="flex flex-row w-full justify-center  lg:justify-evenly mnd:flex-col ">
                       <div className="flex flex-col basis-1/3">
                         <p className="flex flex-col flex-wrap justify-center content-start">
                           <svg
@@ -294,9 +298,9 @@ export default function FiltredList(props: Props) {
                       </div>
                       {!forSale ? <div className="flex flex-row basis-1/3 justify-evenly mnd:justify-between mt-3 items-center">
                         <p className="flex flex-col text-[0.8rem]">
-                          Koszt wynajmu na {days} dni{" "}
+                          Koszt wynajmu na {time} dni{" "}
                           <span className="text-[2rem]">
-                            {item.price * days} zł
+                            {item.price * time} zł
                           </span>
                         </p>
                         <div
