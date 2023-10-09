@@ -15,7 +15,7 @@ export default function HomeSearch() {
   return (
     <>
       <div className="flex flex-row justify-center flex-wrap w-full z-20">
-        <div className="basis-2/4 h-[70px] mmd:h-auto mmd:items-center mmd:justify-center gap-1 mmd:gap-3 w-full flex flex-row mmd:flex-col flex-nowrap p-1 rounded-md bg-palette-100">
+        <div className="basis-3/4 md:basis-2/4 h-[70px] mmd:h-auto mmd:items-center mmd:justify-center gap-1 mmd:gap-3 w-full flex flex-row mmd:flex-col flex-nowrap p-1 rounded-md bg-palette-100">
           <input
             placeholder="Miejsce odbioru"
             type="text"

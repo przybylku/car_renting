@@ -22,7 +22,7 @@
     @apply basis-full w-full mx-2 text-center h-2 mt-3;
   }
   .offert-box {
-    @apply w-[100%] h-[auto] bg-white shadow-md rounded-md max-w-[100%] mx-4 flex flex-row flex-wrap py-2 px-2 mt-5 relative box-border;
+    @apply w-[100%] h-[auto] bg-white shadow-md rounded-md max-w-[100%] md:mx-4 mx-0 flex flex-row flex-wrap py-2 px-2 mt-5 relative box-border;
   }
   .offert-box:nth-of-type(1) {
     @apply mt-0;

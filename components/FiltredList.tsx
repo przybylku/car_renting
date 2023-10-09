@@ -72,7 +72,7 @@ export default function FiltredList(props: Props) {
 
   return (
     <>
-      <div className="flex flex-row flex-wrap basis-1/2 justify-items-center justify-center">
+      <div className="flex flex-row flex-wrap md:basis-1/2 basis-full justify-items-center justify-center">
         {cars.length !== 0 ? (
           cars.map((item) => {
             return (

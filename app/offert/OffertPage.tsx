@@ -13,6 +13,7 @@ import Modal from "@/components/Modal";
 import { useState } from "react";
 import { useAppSelector } from "../store";
 import { selectOrder } from "../store/featues/orderSlice";
+import OrderStatus from "@/components/OrderStatus";
 enum Filters {
   PRICE,
   AGE,
@@ -78,42 +79,10 @@ export default function OffertPage() {
       )}
       {/* Filtry */}
       <div className="flex flex-col flex-wrap justify-center align-middle w-full">
-        <div className="align-middle basis-3/5 flex flex-row flex-wrap w-full mt-10 justify-center">
-          <div className="flex w-full justify-center flex-row basis-full  h-[auto] mb-5">
-            <div className=" border-2 border-palette-200 p-3 rounded-md min-w-[600px] flex flex-row flex-nowrap">
-              <div className="flex-col flex basis-1/3 flex-nowrap">
-                <p className="font-bold text-center text-[1.1rem] mb-2">
-                  {order?.pickupLocation}
-                </p>{" "}
-                <p className="text-[0.8rem] text-center tracking-tight">
-                  {order?.pickupDate}, 10:00
-                </p>
-              </div>
-              <p className="m-[15px] text-center ml-4 text-[1.3rem] leading-5 font-bold">
-                &#62;
-              </p>
-              <div className="flex-col flex basis-1/3">
-                <p className="font-bold text-center text-[1.1rem] mb-2">
-                  {order?.pickupLocation}
-                </p>{" "}
-                <p className="text-[0.8rem] text-center tracking-tight">
-                  {order?.returnDate}, 10:00
-                </p>
-              </div>
-              <p className="m-[15px] ml-4 text-[1.3rem] leading-5 font-bold">
-                &#62;
-              </p>
-              <div className="flex-col flex basis-1/3 justify-center">
-                <p className="font-bold text-center text-[1.1rem] mb-2">
-                  Wybierz auto
-                </p>{" "}
-                {/* <p className="text-[0.8rem] text-center tracking-tight">
-                  {order.pickupDate}, 10:00
-                </p> */}
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col basis-1/5 items-end bg-white rounded-md">
+        <div className="align-middle md:basis-3/5 basis-full p-3 md:p-0 flex flex-row md:flex-nowrap flex-wrap w-full md:mt-10 justify-center">
+          <h1 className="font-bold text-[1.4rem] w-full">Wybór Auta</h1>
+          <OrderStatus order={order}/>
+          <div className="flex flex-col w-full md:basis-1/5 my-3 md:mb-0 items-end bg-white rounded-md">
             <div className="filter-box">
               <p id="p">Cena</p>
               <p>Od</p>

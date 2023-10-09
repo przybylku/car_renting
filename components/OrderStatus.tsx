@@ -1,7 +1,7 @@
 "use client";
 import { orderType } from "@/app/store/featues/orderSlice";
 import { useEffect, useState } from "react";
-export default function OrderStatus({order, car}: {order: orderType, car: any}){
+export default function OrderStatus({order, car}: {order: orderType, car?: any}){
     const [width, setWidth] = useState<number>(window.innerWidth)
     const dateTime = new Date(order.pickupDate as string).toLocaleDateString('pl-PL', {
         day: "numeric",
@@ -48,7 +48,7 @@ export default function OrderStatus({order, car}: {order: orderType, car: any}){
           </p>
           <div className="flex-col flex basis-1/3 justify-center">
             <p className="font-bold text-center text-[1.1rem] mb-2">
-              {car ? car?.name: <>Loading...</>}
+              {car ? car?.name: <>Wybierz Auto</>}
             </p>{" "}
             {/* <p className="text-[0.8rem] text-center tracking-tight">
                 {order.pickupDate}, 10:00
@@ -56,7 +56,7 @@ export default function OrderStatus({order, car}: {order: orderType, car: any}){
           </div>
         </div>
         </div></> : <>
-            <div className="flex flex-col">
+            <div className="flex flex-col self-end w-full">
             <hr className="border-b-2"/>
                 <p className="text-[1.3rem] font-bold pt-2">{order.pickupLocation}</p>
                 <p>{dateTime}, 10:00 - {dateTimeReturn}, 10:00</p>
