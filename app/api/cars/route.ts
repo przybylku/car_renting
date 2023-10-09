@@ -27,7 +27,18 @@ const cars_data: Parametr[] = [
     seats: 5,
     doors: 5,
     gearbox: "Automatyczna",
-    src: "mclaren.jpg",
+    src: "AudiA6.jpg",
+  },
+  {
+    id: 6,
+    name: "Bmw E46",
+    price: 200,
+    age: 1999,
+    engine: true,
+    seats: 5,
+    doors: 5,
+    gearbox: "Manualna",
+    src: "bmw46.png",
   },
   {
     id: 2,
@@ -46,11 +57,33 @@ const cars_data: Parametr[] = [
     price: 332,
     age: 2009,
     engine: true,
-    src: "3.jpg",
+    src: "bmw7.jpg",
     seats: 5,
     doors: 5,
     gearbox: "Manualna",
   },
+  {
+    id: 4,
+    name: "McLaren 720S",
+    price: 1333,
+    age: 2022,
+    engine: false,
+    src: "mclaren.png",
+    seats: 2,
+    doors: 2,
+    gearbox: "Automatyczna"
+  },
+  {
+    id: 5,
+    name: "Corvette C8",
+    price: 999,
+    age: 2021,
+    engine: false,
+    src: "corvette.png",
+    seats: 2,
+    doors: 2,
+    gearbox: "Automatyczna"
+  }
 ];
 export async function GET(request: NextRequest) {
   const params: number = Number(request.nextUrl.searchParams.get('id'))
