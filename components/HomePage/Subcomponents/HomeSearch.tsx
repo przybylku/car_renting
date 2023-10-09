@@ -26,7 +26,7 @@ export default function HomeSearch() {
           show={error.error}
           close={true}
           content={error.message}
-          title={"Błąd"}
+          title={"Błąd!"}
         />
       ) : (
         <></>
@@ -38,24 +38,26 @@ export default function HomeSearch() {
             type="text"
             className="p-3 h-[60px] rounded-md basis-3/6 mmd:w-full"
             onChange={(e) => setLocation(e.currentTarget.value)}
-            style={{border: `${error ? "2px red solid" : "none"}`}}
+            style={{border: `${error.error ? "2px red solid" : "none"}`}}
           />
-          <div className="px-2 py-2 h-[60px] rounded-md mmd:w-full basis-1/6 bg-white">
+          <div className="px-2 py-2 h-[60px] rounded-md mmd:w-full basis-1/6 bg-white"style={{border: `${error.error ? "2px red solid" : "none"}`}}>
             <p className="text-[0.8rem]">Data odbioru</p>
             <input
               placeholder="Miejsce odbioru"
               type="date"
               value={pickup}
               onChange={(e) => setPickup(e.currentTarget.value)}
+              
             />
           </div>
-          <div className="px-2 py-2 h-[60px] rounded-md mmd:w-full basis-1/6 bg-white">
+          <div className="px-2 py-2 h-[60px] rounded-md mmd:w-full basis-1/6 bg-white"style={{border: `${error.error ? "2px red solid" : "none"}`}}>
             <p className="text-[0.8rem]">Data zwrotu</p>
             <input
               placeholder="Miejsce odbioru"
               type="date"
               onChange={(e) => setReturn_(e.currentTarget.value)}
               value={return_}
+              
             />
           </div>
           <div
@@ -71,7 +73,7 @@ export default function HomeSearch() {
               }
               
             }}
-            className="px-2 py-2 mmd:mt-2 h-[60px] mmd:w-full rounded-md basis-1/6 bg-green-500 text-center self-center leading-[45px] text-white font-bold text-[1.5rem] hover:brightness-[.8] cursor-pointer"
+            className="px-2 py-2 mmd:mt-0 mmd:-mb-2 h-[60px] mmd:w-full rounded-md basis-1/6 bg-green-500 text-center self-center leading-[45px] text-white font-bold text-[1.5rem] hover:brightness-[.8] cursor-pointer"
           >
             Szukaj
           </div>
