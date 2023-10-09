@@ -2,7 +2,7 @@
 import { orderType } from "@/app/store/featues/orderSlice";
 import { useEffect, useState } from "react";
 export default function OrderStatus({order, car}: {order: orderType, car?: any}){
-    const [width, setWidth] = useState<number>(window.innerWidth)
+    const [width, setWidth] = useState<number>(window ? window.innerWidth : 1920)
     const dateTime = new Date(order.pickupDate as string).toLocaleDateString('pl-PL', {
         day: "numeric",
         month: 'short'
@@ -13,7 +13,7 @@ export default function OrderStatus({order, car}: {order: orderType, car?: any})
     })
     useEffect(() => {
         function handleResize(){
-            return setWidth(window ? window.innerWidth: 1920)
+            return setWidth(window ? window.innerWidth : 1920)
         }
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
