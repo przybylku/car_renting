@@ -47,7 +47,7 @@ export default function OrderComponent(){
                 <div className="lg:flex lg:flex-row">
 
                 
-                <FiltredList price={[0,0]} age={[0,0]} type={false} carId={order.carID as number} forSale />
+                <FiltredList price={[0,0]} age={[0,0]} type={false} carId={order.carID as number} forSale transmission="all"/>
                 <div className="lg:flex lg:flex-col">
                     
                 <div className="flex w-full my-2 rounded-lg border-[1px] border-gray-300">
