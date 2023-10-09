@@ -6,7 +6,7 @@ import { Providers } from "./store/provider";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./store/store";
 import NavBar from "@/components/HomePage/Subcomponents/NavBar";
-import Footer from "@/components/HomePage/Footer";
+import Footer from "@/components/Footer";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const poppins = Poppins({

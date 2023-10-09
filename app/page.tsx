@@ -1,6 +1,6 @@
 import FirstSection from "@/components/HomePage/FirstSection";
-import Footer from "@/components/HomePage/Footer";
 import SecondSection from "@/components/HomePage/SecondSection";
+import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
