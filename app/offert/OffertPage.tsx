@@ -79,8 +79,8 @@ export default function OffertPage() {
       )}
       {/* Filtry */}
       <div className="flex flex-col flex-wrap justify-center align-middle w-full">
-        <div className="align-middle md:basis-3/5 basis-full p-3 md:p-0 flex flex-row md:flex-nowrap flex-wrap w-full md:mt-10 justify-center">
-          <h1 className="font-bold text-[1.4rem] w-full">Wybór Auta</h1>
+        <div className="align-middle md:basis-3/5 basis-full p-3 md:p-0 flex flex-row flex-wrap w-full md:mt-10 justify-center">
+          <h1 className="font-bold text-[1.4rem] w-full md:hidden block">Wybór Auta</h1>
           <OrderStatus order={order}/>
           <div className="flex flex-col w-full md:basis-1/5 my-3 md:mb-0 items-end bg-white rounded-md">
             <div className="filter-box">

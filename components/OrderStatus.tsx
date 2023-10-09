@@ -16,6 +16,7 @@ export default function OrderStatus({order, car}: {order: orderType, car?: any})
             return setWidth(window ? window.innerWidth : 1920)
         }
         window.addEventListener('resize', handleResize)
+        handleResize()
         return () => window.removeEventListener('resize', handleResize)
     }, [])
     return (
