@@ -20,7 +20,7 @@ export default function Modal({
 }: ModalProps) {
   return (
     <div
-      className="relative z-10"
+      className="relative z-50"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"

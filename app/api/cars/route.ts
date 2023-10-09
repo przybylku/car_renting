@@ -14,7 +14,8 @@ export type Parametr = {
 type Data_f = {
   price: [number, number];
   age: [number, number];
-  engine: boolean;
+  engine: boolean | string;
+  transmission: boolean | string;
 };
 const cars_data: Parametr[] = [
   {
@@ -48,7 +49,7 @@ const cars_data: Parametr[] = [
     src: "3.jpg",
     seats: 5,
     doors: 5,
-    gearbox: "Automatyczna",
+    gearbox: "Manualna",
   },
 ];
 export async function GET(request: NextRequest) {
@@ -97,8 +98,15 @@ export async function POST(request: NextRequest) {
       return data.age[0] < car.age && data.age[1] > car.age;
     });
   }
-
-  // console.log(result);
+  if(data.engine !== "all"){
+    result = result.filter((car) => car.engine === data.engine)
+  }
+  if(data.transmission !== "all"){
+    console.log('transmision kurwa ten')
+    result = result.filter((car) => car.gearbox === data.transmission)
+  }
+  
+  console.log(result);
   return NextResponse.json(result);
 }
 

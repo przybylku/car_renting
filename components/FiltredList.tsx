@@ -17,15 +17,17 @@ import dayjs from "dayjs";
 interface Props {
   price: [number, number];
   age: [number, number];
-  type: boolean;
+  type: boolean | string;
   carId?: number
-  forSale?: boolean
+  forSale?: boolean,
+  transmission: boolean | string
 }
 
 async function getCars(
   price: [number, number],
   age: [number, number],
-  type: boolean,
+  type: boolean | string,
+  transmission: boolean | string,
   id?: number,
 
 ) {
@@ -37,7 +39,8 @@ async function getCars(
     body: JSON.stringify({
       price: price,
       age: age,
-      type: type,
+      engine: type,
+      transmission: transmission
     }),
   });
   return await res.json();
@@ -49,7 +52,7 @@ async function getCar(id:number) {
   return await res.json()
 }
 export default function FiltredList(props: Props) {
-  const { price, age, type, carId, forSale } = props;
+  const { price, age, type, carId, forSale, transmission } = props;
   const [cars, setCars] = useState<Parametr[]>([]);
   const order: orderType = useAppSelector(selectOrder);
   const dispatch = useAppDispatch();
@@ -64,7 +67,7 @@ export default function FiltredList(props: Props) {
     if(carId){
       getCar(carId).then((data) => setCars(data))
     }else{ 
-      const cars_a = getCars(price, age, type);
+      const cars_a = getCars(price, age, type, transmission);
       cars_a.then((a) => setCars(a));
     }
     
